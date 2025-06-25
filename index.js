@@ -11,7 +11,7 @@ connectDB();
 
 
 // Middleware
-app.use(express.json());
+app.use(express.json({ limit: '10kb' }));
 app.use('/api/auth', authRoutes);
 app.use('/api/forms', formRoutes);
 app.use('/api', submissionRoutes);
@@ -21,12 +21,6 @@ app.listen(process.env.PORT || 5000, () => {
 });
 
 app.get('/', (req, res) => {
-  res.render('index.html');
+  res.send('Welcome to the ServerLessForm API');
 });
 
-// app.get('/api', authMiddleware, (req, res) => {
-//   res.json({
-//     message: 'This is a protected route',
-//     user: req.user, // User information from authMiddleware
-//   });
-// });
