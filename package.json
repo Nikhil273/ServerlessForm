@@ -4,7 +4,7 @@
   "description": "A ServerLessFrom Handler API",
   "main": "index.js",
   "scripts": {
-    "node": "nodemon index.js"
+    "start": "nodemon index.js"
   },
   "author": "Nikhil Maurya",
   "license": "ISC",
