@@ -4,7 +4,7 @@
   "description": "A ServerLessFrom Handler API",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "node": "nodemon index.js"
   },
   "author": "Nikhil Maurya",
   "license": "ISC",
