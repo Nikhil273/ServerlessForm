@@ -8,7 +8,9 @@ const submissionRoutes = require('./routes/submissionRoutes');
 const app = express();
 dotenv.config();
 connectDB();
-
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
 
 // Middleware
 app.use(express.json({ limit: '10kb' }));
