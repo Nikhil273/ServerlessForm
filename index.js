@@ -16,7 +16,7 @@ app.use(cors({
   origin: 'http://localhost:5173', // <-- Your Vite frontend
   credentials: true,
 }));
-
+app.use(express.urlencoded({ extended: true }));
 // Middleware
 app.use(express.json({ limit: '10kb' }));
 app.use('/api/auth', authRoutes);

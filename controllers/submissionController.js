@@ -9,11 +9,13 @@ exports.submitForm = async (req, res) => {
   try {
     const form = await Form.findById(formId);
     if (!form) return res.status(404).json({ msg: 'Form not found' });
-
+    const formtitle = form.formtitle;
     const submissionData = req.body;
+
+    submissionData.formTitle = formtitle;
     console.log('Received submission data:', submissionData);
 
-    // Save submission
+
     const submission = new Submission({
       formId: form._id,
       data: submissionData,
@@ -24,7 +26,7 @@ exports.submitForm = async (req, res) => {
     await submission.save();
 
     // Send email notification
-    await sendEmail(form.notificationEmail, submissionData);
+    await sendEmail(form.notificationEmail, submissionData, formtitle);
 
     return res.status(200).json({ msg: 'Form submitted successfully' });
 
