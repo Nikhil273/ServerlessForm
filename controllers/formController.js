@@ -59,8 +59,7 @@ exports.deleteForm = async (req, res) => {
       return res.status(401).json({ msg: "Unauthorized" });
     }
 
-    await form.remove();
-
+    await Form.findByIdAndDelete(req.params.id);
     res.status(200).json({ msg: "Form deleted successfully" });
   } catch (error) {
     console.error("Delete form error:", error.message);

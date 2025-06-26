@@ -21,7 +21,7 @@ router.post('/login', [
 
 // Get Current User Route
 router.get('/me', authMiddleware, async (req, res) => {
-  const user = await User.find({ user: req.user.id }).select('-__v -password -createdAt -updatedAt');
+  const user = await User.findById(req.user.id).select('-__v -password -createdAt -updatedAt');
   if (!user) {
     return res.status(401).json({ msg: 'Unauthorized' });
   }

@@ -1,6 +1,6 @@
 const express = require('express');
 const { check } = require('express-validator');
-const { createForm, myForm } = require('../controllers/formController');
+const { createForm, myForm, deleteForm } = require('../controllers/formController');
 const authMiddleware = require('../middleware/authMiddleware');
 
 const router = express.Router();
@@ -16,5 +16,5 @@ router.post(
   createForm
 );
 router.get("/myforms", authMiddleware, myForm);
-router.delete("/:id", authMiddleware,)
+router.delete("/:id", authMiddleware, deleteForm)
 module.exports = router;

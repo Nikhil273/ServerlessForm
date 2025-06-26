@@ -11,7 +11,7 @@ connectDB();
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 }
-
+app.set('trust proxy', 1);
 app.use(cors({
   origin: 'http://localhost:5173', // <-- Your Vite frontend
   credentials: true,
