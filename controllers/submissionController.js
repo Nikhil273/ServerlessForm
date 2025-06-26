@@ -11,6 +11,7 @@ exports.submitForm = async (req, res) => {
     if (!form) return res.status(404).json({ msg: 'Form not found' });
 
     const submissionData = req.body;
+    console.log('Received submission data:', submissionData);
 
     // Save submission
     const submission = new Submission({

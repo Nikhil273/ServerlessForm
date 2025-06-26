@@ -9,10 +9,29 @@
     <form
       action="https://serverlessform.onrender.com/api/submit/685d4e656d43b6505bee5fd6"
       method="POST"
+      style="max-width: 400px; margin: auto"
     >
-      <input type="text" name="name" placeholder="Your name" required />
-      <input type="email" name="email" placeholder="Your email" required />
-      <textarea name="message" placeholder="Message"></textarea>
+      <h2>Contact Form</h2>
+
+      <label for="name">Name</label><br />
+      <input type="text" id="name" name="name" required /><br /><br />
+
+      <label for="age">Age</label><br />
+      <input type="number" id="age" name="age" min="1" required /><br /><br />
+
+      <label for="message">Message</label><br />
+      <textarea id="message" name="message" rows="5" required></textarea
+      ><br /><br />
+
+      <!-- Honeypot spam protection (invisible to humans) -->
+      <input
+        type="text"
+        name="_honeypot"
+        style="display: none"
+        tabindex="-1"
+        autocomplete="off"
+      />
+
       <button type="submit">Send</button>
     </form>
   </body>
