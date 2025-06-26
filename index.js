@@ -4,13 +4,18 @@ const dotenv = require('dotenv');
 const authRoutes = require('./routes/authRoutes');
 const formRoutes = require('./routes/formRoutes');
 const submissionRoutes = require('./routes/submissionRoutes');
-
+const cors = require('cors');
 const app = express();
 dotenv.config();
 connectDB();
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 }
+
+app.use(cors({
+  origin: 'http://localhost:5173', // <-- Your Vite frontend
+  credentials: true,
+}));
 
 // Middleware
 app.use(express.json({ limit: '10kb' }));

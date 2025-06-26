@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const FormSchema = new mongoose.Schema({
-  name: {
+  formtitle: {
     type: String,
     required: true,
   },
@@ -21,6 +21,10 @@ const FormSchema = new mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now,
+  },
+  endpoint: {
+    type: String,
+    // Ensure each form has a unique endpoint
   },
 });
 
